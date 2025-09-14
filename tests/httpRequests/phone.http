@@ -11,7 +11,9 @@ Content-Type: application/json
 GET http://localhost:5000/api/phones
 
 
+
 GET http://localhost:5000/api/phones/68c662a862a83a8c2ee78f22
+
 
 
 PATCH http://localhost:5000/api/phones/68c662a862a83a8c2ee78f22
@@ -20,5 +22,7 @@ Content-Type: application/json
 {
     "model":"Galaxy A26 5G 8/256GB"
 }
+
+
 
 DELETE http://localhost:5000/api/phones/68c662a862a83a8c2ee78f22

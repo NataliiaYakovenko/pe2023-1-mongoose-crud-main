@@ -49,7 +49,7 @@ module.exports.udatePhoneById = async (req, res, next) => {
     body,
   } = req;
 
-  const updatedPhone = await Phone.findByIdAndUpdate( phoneId , body, {
+  const updatedPhone = await Phone.findByIdAndUpdate(phoneId, body, {
     new: true,
   });
 
@@ -59,6 +59,14 @@ module.exports.udatePhoneById = async (req, res, next) => {
   return res.status(200).send({ data: updatedPhone });
 };
 
+module.exports.deletePhoneById = async (req, res, next) => {
+  const {
+    params: { phoneId },
+  } = req;
 
-
-module.exports.deletePhoneById = async (req, res, next) => {};
+  const deletedPhone = await Phone.findByIdAndDelete(phoneId);
+  if (!deletedPhone) {
+    return res.status(404).send('Phone not found');
+  }
+  return res.status(200).end();
+};
