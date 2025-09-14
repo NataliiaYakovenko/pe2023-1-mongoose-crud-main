@@ -33,13 +33,32 @@ module.exports.findPhoneById = async (req, res, next) => {
   } = req;
 
   try {
-
-    
+    const foundOnePhone = await Phone.findById(phoneId);
+    if (!foundOnePhone) {
+      return res.status(404).send('Phone not found');
+    }
+    return res.status(200).send({ data: foundOnePhone });
   } catch (error) {
     next(error);
   }
 };
 
-module.exports.udatePhoneById = async (req, res, next) => {};
+module.exports.udatePhoneById = async (req, res, next) => {
+  const {
+    params: { phoneId },
+    body,
+  } = req;
+
+  const updatedPhone = await Phone.findByIdAndUpdate( phoneId , body, {
+    new: true,
+  });
+
+  if (!updatedPhone) {
+    return res.status(404).send('Phone not found');
+  }
+  return res.status(200).send({ data: updatedPhone });
+};
+
+
 
 module.exports.deletePhoneById = async (req, res, next) => {};
