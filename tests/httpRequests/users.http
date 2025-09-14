@@ -47,3 +47,16 @@ Content-Type: application/json
 GET http://localhost:5000/api/users/65bfb4b98f78c3d93b668251/posts
 
 GET http://localhost:5000/api/posts
+
+
+
+POST http://localhost:5000/api/users/68c27784e14a514508ae7a60/phones
+Content-Type: application/json
+
+  {
+    "brand": "Nokia",
+    "model": "230",
+    "dateProduction": "2021-01-01"
+  }
+
+GET http://localhost:5000/api/users/68c27784e14a514508ae7a60/phones
