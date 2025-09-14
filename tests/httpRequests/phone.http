@@ -1,0 +1,13 @@
+POST http://localhost:5000/api/phones
+Content-Type: application/json
+
+{
+    "brand": "Samsung",
+    "model": "Galaxy A17 5G",
+    "dateProduction": "2025-08-08"
+}
+
+
+GET http://localhost:5000/api/phones
+
+
